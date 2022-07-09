@@ -1,0 +1,21 @@
+;; Booleans
+boolean_true: true,
+boolean_false: false,
+;; Integers
+regular_integer: 42,
+binary_integer: b101010,
+hexadecimal_integer: x2a,
+;; Floats
+float_regular: 0.1,
+float_dot_not: .1,
+;; String
+string: "Hello, world!",
+;; Literal
+literal: `Hello, world!`,
+char: '?',
+null_content: null,
+array: ["1", `2`, '3', 4, 5.0],
+tuple: (1, 2, 3),
+dictionary: {
+    foo: "bar",
+}

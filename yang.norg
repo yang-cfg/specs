@@ -4,58 +4,93 @@ description: yang specs
 authors: shift
 created: 2022-07-08
 version: 0.0.11
+tangle: ./specs.yang
 @end
 
 * Data types
 ** Boolean
    Either `true` or `false`
+   #tangle ./specs.yang
+   @code yang
+   ;; Booleans
+   boolean_true: true,
+   boolean_false: false,
+   @end
 ** Integer
    Can be one of these forms:
    - Regular integer - `42`
    - Binary integer - `b101010`
    - Hexadecimal integer - `x2a`
+   #tangle ./specs.yang
+   @code yang
+   ;; Integers
+   regular_integer: 42,
+   binary_integer: b101010,
+   hexadecimal_integer: x2a,
+   @end
 ** Float
    Regular floats. Can support dot-notation (`.1` equals `0.1`)
+   #tangle ./specs.yang
+   @code yang
+   ;; Floats
+   float_regular: 0.1,
+   float_dot_not: .1,
+   @end
 ** String
    Set of chars marked by double quotes (`"`). Can have escape sequences.
+   #tangle ./specs.yang
+   @code yang
+   ;; String
+   string: "Hello, world!",
+   @end
 ** Literal
    Set of chars marked by backticks (`\``). Cannot have escape sequences.
+   #tangle ./specs.yang
+   @code yang
+   ;; Literal
+   literal: `Hello, world!`,
+   @end
 ** Char
    Single character marked by single quotes (`'`). Can be an escape sequence.
+   #tangle ./specs.yang
+   @code yang
+   char: '?',
+   @end
 ** null
    Nothing. We are just being explicit.
+   #tangle ./specs.yang
+   @code yang
+   null_content: null,
+   @end
 ** Array
    A set of items of any types marked by square brackets (`[]`).
+   #tangle ./specs.yang
+   @code yang
+   array: ["1", `2`, '3', 4, 5.0],
+   @end
 ** Tuple
    A set of items of the /same/ type marked by brackets (`()`).
+   #tangle ./specs.yang
+   @code yang
+   tuple: (1, 2, 3),
+   @end
 ** Dictionaries
    Nested structures. That's it. Marked by curly brackets (`{}`).
+   #tangle ./specs.yang
+   @code yang
+   dictionary: {
+       foo: "bar",
+   }
+   @end
 * Syntax features
 ** String interpolation (#\{\})
 ** Comments (;)
 ** Dot syntax for floats
 ** Underscores for integers
 ** Multiline literals and strings
+
 * Addons
 ** Schema
 ** Variables
 ** Imports
-   ===
-@code
-;; Hello, world!
-boolean: true,
-integer: 1_000,
-float: .000_1,
-string: "Hello",
-literal: `Hello`,
-multiline_string: """
-                  Hello, world!
-                  """,
-multiline_literal: ```
-                   Hello, world!
-                   ```,
-char: 'c',
-null_value: null,
-array: ["foo", "bar"],
-dict: { foo: "bar" },
-@end
+
